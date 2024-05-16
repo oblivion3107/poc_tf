@@ -43,10 +43,10 @@ module "ec2_instance" {
   user_data              = <<-EOF
                             #!/bin/bash
                             sudo apt-get update -y
-                            sudo apt-get install -y openjdk-8-jdk
-                            sudo apt-get install -y tomcat9
-                            sudo systemctl enable tomcat9
-                            sudo systemctl start tomcat9
+                            sudo apt-get install -y openjdk-1.8*
+                            sudo apt-get install -y tomcat10
+                            sudo systemctl enable tomcat10
+                            sudo systemctl start tomcat10
                             EOF
 
   ec2_instance_name = "MyInstance"
@@ -131,8 +131,8 @@ module "launch_configuration" {
   launch_configuration_user_data   = <<-EOF
     #!/bin/bash
     sudo apt-get update -y
-    sudo systemctl enable tomcat9
-    sudo systemctl start tomcat9
+    sudo systemctl enable tomcat10
+    sudo systemctl start tomcat10
     
   EOF
 }
